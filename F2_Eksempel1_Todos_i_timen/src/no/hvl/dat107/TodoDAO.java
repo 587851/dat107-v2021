@@ -25,7 +25,11 @@ public class TodoDAO {
 		EntityManager em = emf.createEntityManager();
 
 		try {
+<<<<<<< HEAD
 		   return em.find(Todo.class, pk);
+=======
+			return em.find(Todo.class, pk);
+>>>>>>> branch 'main' of https://github.com/587851/dat107-v2021.git
 
 		} finally {
 			em.close();
@@ -40,24 +44,49 @@ public class TodoDAO {
 		EntityManager em = emf.createEntityManager();
 
 		try {
+<<<<<<< HEAD
 			TypedQuery<Todo> query = em.createQuery("SELECT t FROM Todo t", Todo.class);
 			return query.getResultList();
 
+=======
+			TypedQuery<Todo> query = em.createQuery(
+					"SELECT t FROM Todo t", Todo.class);
+			return query.getResultList();
+		
+>>>>>>> branch 'main' of https://github.com/587851/dat107-v2021.git
 		} finally {
 			em.close();
 		}
 	}
 
+	public Todo finnTodoMedTekst(String tekst) {
+		EntityManager em = emf.createEntityManager();
+		
+		try {
+			TypedQuery<Todo> query = em.createQuery(
+					"SELECT t FROM Todo t WHERE t.tekst = :tekst", Todo.class);
+			query.setParameter("tekst", tekst);
+			return query.getSingleResult(); //NB! Unntak hvis 0 eller flere.
+		
+		} finally {
+			em.close();
+		}
+	}
+	
 	/**
 	 * @param tekst
 	 * @return
 	 */
 	
 	public List<Todo> finnTodosMedTekst(String tekst) {
+<<<<<<< HEAD
 
+=======
+>>>>>>> branch 'main' of https://github.com/587851/dat107-v2021.git
 		EntityManager em = emf.createEntityManager();
 
 		try {
+<<<<<<< HEAD
 			TypedQuery<Todo> query = em.createQuery("SELECT t FROM Todo t WHERE t.tekst = :tekst", Todo.class);
 			query.setParameter("tekst", tekst);
 			return query.getResultList(); //NB! Unntak hvis 0 eller flere 
@@ -76,6 +105,13 @@ public class TodoDAO {
 			query.setParameter("tekst", tekst);
 			return query.getSingleResult(); //NB! Unntak hvis 0 eller flere 
 
+=======
+			TypedQuery<Todo> query = em.createQuery(
+					"SELECT t FROM Todo t WHERE t.tekst = :tekst", Todo.class);
+			query.setParameter("tekst", tekst);
+			return query.getResultList(); 
+		
+>>>>>>> branch 'main' of https://github.com/587851/dat107-v2021.git
 		} finally {
 			em.close();
 		}
@@ -91,9 +127,15 @@ public class TodoDAO {
 
 		try {
 			tx.begin();
+<<<<<<< HEAD
 
 		    em.persist(todony);
 
+=======
+			
+			em.persist(todony);
+			
+>>>>>>> branch 'main' of https://github.com/587851/dat107-v2021.git
 			tx.commit();
 
 		} catch (Throwable e) {
@@ -116,10 +158,17 @@ public class TodoDAO {
 
 		try {
 			tx.begin();
+<<<<<<< HEAD
 
 			Todo todo = em.find(Todo.class, pk);
 			em.remove(todo);
 
+=======
+			
+			Todo todo = em.find(Todo.class, pk);
+			em.remove(todo);
+			
+>>>>>>> branch 'main' of https://github.com/587851/dat107-v2021.git
 			tx.commit();
 
 		} catch (Throwable e) {
@@ -142,9 +191,15 @@ public class TodoDAO {
 
 		try {
 			tx.begin();
+<<<<<<< HEAD
 
 			em.merge(todo);
 
+=======
+			
+			em.merge(todo);
+			
+>>>>>>> branch 'main' of https://github.com/587851/dat107-v2021.git
 			tx.commit();
 		} catch (Throwable e) {
 			e.printStackTrace();
@@ -163,10 +218,17 @@ public class TodoDAO {
 
 		try {
 			tx.begin();
+<<<<<<< HEAD
 
 			Todo todo = em.find(Todo.class, id);
 			todo.setTekst(nyTekst);
 
+=======
+			
+			Todo todo = em.find(Todo.class, id);
+			todo.setTekst(nyTekst);
+						
+>>>>>>> branch 'main' of https://github.com/587851/dat107-v2021.git
 			tx.commit();
 		} catch (Throwable e) {
 			e.printStackTrace();
@@ -177,4 +239,5 @@ public class TodoDAO {
 			em.close();
 		}
 	}
+
 }

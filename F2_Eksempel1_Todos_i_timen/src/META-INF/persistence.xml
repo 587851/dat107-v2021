@@ -7,14 +7,25 @@
 	
 	<persistence-unit name="todoPersistenceUnit" transaction-type="RESOURCE_LOCAL">
 	
+<<<<<<< HEAD
 	    <class>no.hvl.dat107.Todo</class>
 	    
+=======
+		<class>no.hvl.dat107.Todo</class>
+		
+>>>>>>> branch 'main' of https://github.com/587851/dat107-v2021.git
 		<properties>
 			<!-- Generelle JPA properties -->
 			<property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver" />
+<<<<<<< HEAD
 			<property name="javax.persistence.jdbc.url" value="jdbc:postgresql://data1.hib.no:5434/h587851" />
 			<property name="javax.persistence.jdbc.user" value="h587851" />
 			<property name="javax.persistence.jdbc.password" value="RSogBG6268" />
+=======
+			<property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/dat107v21" />
+			<property name="javax.persistence.jdbc.user" value="postgres" />
+			<property name="javax.persistence.jdbc.password" value="postgres" />
+>>>>>>> branch 'main' of https://github.com/587851/dat107-v2021.git
 
             <!--  EclipseLink properties -->
             <!--  Se https://wiki.eclipse.org/EclipseLink/Examples/JPA/Logging -->
