@@ -60,13 +60,12 @@ public class TodoDAO {
 		try {
 			TypedQuery<Todo> query = em.createQuery("SELECT t FROM Todo t WHERE t.tekst = :tekst", Todo.class);
 			query.setParameter("tekst", tekst);
-			return query.getSingleResult(); //NB! Unntak hvis 0 eller flere 
+			return query.getResultList(); //NB! Unntak hvis 0 eller flere 
 
 		} finally {
 			em.close();
 		}
 	}
-	
 	
 	public Todo finnTodoMedTekst(String tekst) {
 
