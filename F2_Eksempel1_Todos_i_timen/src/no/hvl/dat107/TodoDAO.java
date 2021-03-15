@@ -26,7 +26,7 @@ public class TodoDAO {
 		EntityManager em = emf.createEntityManager();
 
 		try {
-			return null; //TODO
+			return em.find(Todo.class, pk);
 
 		} finally {
 			em.close();
@@ -41,23 +41,41 @@ public class TodoDAO {
 		EntityManager em = emf.createEntityManager();
 		
 		try {
-			return null; //TODO
+			TypedQuery<Todo> query = em.createQuery(
+					"SELECT t FROM Todo t", Todo.class);
+			return query.getResultList();
 		
 		} finally {
 			em.close();
 		}
 	}
 
+	public Todo finnTodoMedTekst(String tekst) {
+		EntityManager em = emf.createEntityManager();
+		
+		try {
+			TypedQuery<Todo> query = em.createQuery(
+					"SELECT t FROM Todo t WHERE t.tekst = :tekst", Todo.class);
+			query.setParameter("tekst", tekst);
+			return query.getSingleResult(); //NB! Unntak hvis 0 eller flere.
+		
+		} finally {
+			em.close();
+		}
+	}
+	
 	/**
 	 * @param tekst
 	 * @return
 	 */
 	public List<Todo> finnTodosMedTekst(String tekst) {
-		
 		EntityManager em = emf.createEntityManager();
 		
 		try {
-			return null; //TODO
+			TypedQuery<Todo> query = em.createQuery(
+					"SELECT t FROM Todo t WHERE t.tekst = :tekst", Todo.class);
+			query.setParameter("tekst", tekst);
+			return query.getResultList(); 
 		
 		} finally {
 			em.close();
@@ -75,7 +93,7 @@ public class TodoDAO {
 		try {
 			tx.begin();
 			
-			//TODO
+			em.persist(todony);
 			
 			tx.commit();
 
@@ -100,7 +118,8 @@ public class TodoDAO {
 		try {
 			tx.begin();
 			
-			//TODO
+			Todo todo = em.find(Todo.class, pk);
+			em.remove(todo);
 			
 			tx.commit();
 
@@ -125,7 +144,7 @@ public class TodoDAO {
 		try {
 			tx.begin();
 			
-			//TODO
+			em.merge(todo);
 			
 			tx.commit();
 		} catch (Throwable e) {
@@ -146,7 +165,8 @@ public class TodoDAO {
 		try {
 			tx.begin();
 			
-			//TODO
+			Todo todo = em.find(Todo.class, id);
+			todo.setTekst(nyTekst);
 						
 			tx.commit();
 		} catch (Throwable e) {
@@ -158,4 +178,5 @@ public class TodoDAO {
 			em.close();
 		}
 	}
+
 }

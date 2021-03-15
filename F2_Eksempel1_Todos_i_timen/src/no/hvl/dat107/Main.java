@@ -28,35 +28,35 @@ public class Main {
 		// DAO er en forkortelse for Data Access Object, og er et vanlig navn på slike
 		TodoDAO todoDAO = new TodoDAO();
 
-//		// a)
+		// a)
 //		Todo todoa = todoDAO.finnTodoMedPk(2);
 //		
 //		System.out.println("\na) Hente ut todo med pk=2");
 //		System.out.println("   " + todoa);
 
 		
-//		// b)
-//		List<Todo> alleTodos = todoDAO.finnAlleTodos();
-//		
-//		System.out.println("\nb) Hente ut alle todos");
-//		alleTodos.forEach(t -> System.out.println("   " + t));
+		// b)
+		List<Todo> alleTodos = todoDAO.finnAlleTodos();
+		
+		System.out.println("\nb) Hente ut alle todos");
+		alleTodos.forEach(t -> System.out.println("   " + t));
 
 		
-//		// c)
+		// c)
 //		Todo todoci = todoDAO.finnTodoMedTekst("Handle mat");
 //		System.out.println(todoci);
 //				
 //		Todo todocii = todoDAO.finnTodoMedTekst("Vaske bilen");
 //		System.out.println(todocii);
-//		
-//		List<Todo> todosciii = todoDAO.finnTodosMedTekst("Handle mat");
-//		System.out.println(todosciii);
-//
-//		List<Todo> todosciv = todoDAO.finnTodosMedTekst("Vaske bilen");
-//		System.out.println(todosciv);
+		
+		List<Todo> todosciii = todoDAO.finnTodosMedTekst("Handle mat");
+		System.out.println(todosciii);
+
+		List<Todo> todosciv = todoDAO.finnTodosMedTekst("Vaske bilen");
+		System.out.println(todosciv);
 		
 		
-//		// d)
+		// d)
 //		System.out.println("\nd) Legge til en ny todo med pk=4");
 //
 //		Todo todony = new Todo(4, "Gjøre lekser");
@@ -67,8 +67,8 @@ public class Main {
 //		System.out.println("   " + todod);
 //	
 //		pauseOgSjekkDatabasen("\nSjekk at vi har fått en ny rad med id=4 og tekst=Gjøre lekser.");
-
-		
+//
+//		
 //		// e)
 //		System.out.println("\ne) Slette todo med pk=4");
 //
@@ -79,8 +79,8 @@ public class Main {
 //		System.out.println("   " + todoe);
 //
 //		pauseOgSjekkDatabasen("\nSjekk at rad med id=4 er slettet igjen.");
-
-		
+//
+//		
 //		// f)
 //		System.out.println("\nf) Endre tekst på todo med pk=3");
 //
@@ -93,8 +93,8 @@ public class Main {
 //		System.out.println("   " + todof2);
 //
 //		pauseOgSjekkDatabasen("\nSjekk at rad med id=3 har fått oppdatert klokkeslett i tekst.");
-
-		
+//
+//		
 //		// g)
 //		System.out.println("\ng) Endre tekst på todo med pk=3, alternativ måte");
 //
