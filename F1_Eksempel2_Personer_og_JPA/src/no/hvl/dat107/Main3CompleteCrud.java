@@ -27,7 +27,7 @@ public class Main3CompleteCrud {
 		Person per = crud.retrievePerson(1001);
 		System.out.println(per);
 		
-		crud.updatePerson(per.getId(), "X");
+		crud.updatePerson(per.getId(), "Per Askeladden");
 		per = crud.retrievePerson(1001);
 		System.out.println(per);
 		
@@ -94,8 +94,7 @@ public class Main3CompleteCrud {
 
 		List<Person> personer = null;
 		try {
-			TypedQuery<Person> query = em.createQuery(
-			        "SELECT p FROM Person p", Person.class);
+			TypedQuery<Person> query = em.createQuery("SELECT p FROM Person p", Person.class);
 			personer = query.getResultList();
 		} finally {
 			em.close();
@@ -123,8 +122,10 @@ public class Main3CompleteCrud {
 		EntityManager em = emf.createEntityManager();
 
 		try {
+			em.getTransaction().begin();
 			Person p = em.find(Person.class, id);
 			p.setNavn(nyttNavn);
+			em.getTransaction().commit();
 		
 		} catch (Throwable e) {
 			e.printStackTrace();

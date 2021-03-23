@@ -46,6 +46,32 @@ public class Prosjekt {
     public void fjernAnsatt(Ansatt a) {
         ansatte.remove(a);
     }
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getNavn() {
+		return navn;
+	}
+
+	public void setNavn(String navn) {
+		this.navn = navn;
+	}
+
+	public List<Ansatt> getAnsatte() {
+		return ansatte;
+	}
+
+	public void setAnsatte(List<Ansatt> ansatte) {
+		this.ansatte = ansatte;
+	}
+    
+    
     
 }
 

@@ -13,8 +13,7 @@ public class Main1SimilarToJDBCMain3 {
 
 		String jpql = "SELECT p FROM Person p";
 		
-		EntityManagerFactory emf = Persistence
-				.createEntityManagerFactory("personPersistenceUnit");
+		EntityManagerFactory emf = Persistence.createEntityManagerFactory("personPersistenceUnit");
 
 		EntityManager em = emf.createEntityManager();
 		

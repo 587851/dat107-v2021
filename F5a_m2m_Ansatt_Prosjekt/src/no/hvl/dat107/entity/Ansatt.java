@@ -41,4 +41,38 @@ public class Ansatt {
         prosjekter.remove(p);
     }
 
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getFornavn() {
+		return fornavn;
+	}
+
+	public void setFornavn(String fornavn) {
+		this.fornavn = fornavn;
+	}
+
+	public String getEtternavn() {
+		return etternavn;
+	}
+
+	public void setEtternavn(String etternavn) {
+		this.etternavn = etternavn;
+	}
+
+	public List<Prosjekt> getProsjekter() {
+		return prosjekter;
+	}
+
+	public void setProsjekter(List<Prosjekt> prosjekter) {
+		this.prosjekter = prosjekter;
+	}
+    
+    
+
 }

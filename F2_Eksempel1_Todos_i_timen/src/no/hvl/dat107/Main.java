@@ -7,9 +7,9 @@ import java.util.Scanner;
 public class Main {
 
 	private static Scanner scanner = new Scanner(System.in);
-	
+
 	public static void main(String[] args) {
-		
+
 		/*
 		 * Ting å prøve: 
 		 * a) Hente ut todo med pk=2 
@@ -28,103 +28,61 @@ public class Main {
 		// DAO er en forkortelse for Data Access Object, og er et vanlig navn på slike
 		TodoDAO todoDAO = new TodoDAO();
 
-<<<<<<< HEAD
-//		// a)
+		//		// a)
 		Todo todoa = todoDAO.finnTodoMedPk(2);
-		
+
 		System.out.println("\na) Hente ut todo med pk=2");
 		System.out.println("   " + todoa);
-=======
-		// a)
-//		Todo todoa = todoDAO.finnTodoMedPk(2);
-//		
-//		System.out.println("\na) Hente ut todo med pk=2");
-//		System.out.println("   " + todoa);
->>>>>>> branch 'main' of https://github.com/587851/dat107-v2021.git
 
-		
-<<<<<<< HEAD
-//		// b)
-=======
+
+
 		// b)
->>>>>>> branch 'main' of https://github.com/587851/dat107-v2021.git
 		List<Todo> alleTodos = todoDAO.finnAlleTodos();
-		
+
 		System.out.println("\nb) Hente ut alle todos");
 		alleTodos.forEach(t -> System.out.println("   " + t));
 
-		
+
 		// c)
-//		Todo todoci = todoDAO.finnTodoMedTekst("Handle mat");
-//		System.out.println(todoci);
-//				
+		System.out.println("\nc)");
+		Todo todoci = todoDAO.finnTodoMedTekst("Handle mat");
+		System.out.println(todoci);
+
 //		Todo todocii = todoDAO.finnTodoMedTekst("Vaske bilen");
 //		System.out.println(todocii);
-		
+
 		List<Todo> todosciii = todoDAO.finnTodosMedTekst("Handle mat");
 		System.out.println(todosciii);
 
 		List<Todo> todosciv = todoDAO.finnTodosMedTekst("Vaske bilen");
 		System.out.println(todosciv);
-		
-		
-<<<<<<< HEAD
-//		// d)
+
+
+		// d)
 		System.out.println("\nd) Legge til en ny todo med pk=4");
 
-		Todo todony = new Todo(4, "Gjøre lekser");
+		Todo todony = new Todo(5, "Gjøre lekser");
 		todoDAO.lagreNyTodo(todony);
-		
-		Todo todod = todoDAO.finnTodoMedPk(4);
-		System.out.println("   Henter ut todo med pk=4");
+
+		Todo todod = todoDAO.finnTodoMedPk(5);
+		System.out.println("   Henter ut todo med pk=5");
 		System.out.println("   " + todod);
-	
-		pauseOgSjekkDatabasen("\nSjekk at vi har fått en ny rad med id=4 og tekst=Gjøre lekser.");
 
-		
-=======
-		// d)
-//		System.out.println("\nd) Legge til en ny todo med pk=4");
-//
-//		Todo todony = new Todo(4, "Gjøre lekser");
-//		todoDAO.lagreNyTodo(todony);
-//		
-//		Todo todod = todoDAO.finnTodoMedPk(4);
-//		System.out.println("   Henter ut todo med pk=4");
-//		System.out.println("   " + todod);
-//	
-//		pauseOgSjekkDatabasen("\nSjekk at vi har fått en ny rad med id=4 og tekst=Gjøre lekser.");
-//
-//		
->>>>>>> branch 'main' of https://github.com/587851/dat107-v2021.git
-//		// e)
-<<<<<<< HEAD
-		System.out.println("\ne) Slette todo med pk=4");
+		pauseOgSjekkDatabasen("\nSjekk at vi har fått en ny rad med id=5 og tekst=Gjøre lekser.");
 
-		todoDAO.slettTodoMedPk(4);
+		// e)
 
-		Todo todoe = todoDAO.finnTodoMedPk(4);
-		System.out.println("   Henter ut todo med pk=4");
+		System.out.println("\ne) Slette todo med pk=5");
+
+		todoDAO.slettTodoMedPk(5);
+
+		Todo todoe = todoDAO.finnTodoMedPk(5);
+		System.out.println("   Henter ut todo med pk=5");
 		System.out.println("   " + todoe);
 
-		pauseOgSjekkDatabasen("\nSjekk at rad med id=4 er slettet igjen.");
+		pauseOgSjekkDatabasen("\nSjekk at rad med id=5 er slettet igjen.");
 
-		
-=======
-//		System.out.println("\ne) Slette todo med pk=4");
-//
-//		todoDAO.slettTodoMedPk(4);
-//
-//		Todo todoe = todoDAO.finnTodoMedPk(4);
-//		System.out.println("   Henter ut todo med pk=4");
-//		System.out.println("   " + todoe);
-//
-//		pauseOgSjekkDatabasen("\nSjekk at rad med id=4 er slettet igjen.");
-//
-//		
->>>>>>> branch 'main' of https://github.com/587851/dat107-v2021.git
-//		// f)
-<<<<<<< HEAD
+		// f)
 		System.out.println("\nf) Endre tekst på todo med pk=3");
 
 		Todo todof1 = todoDAO.finnTodoMedPk(3);
@@ -136,24 +94,12 @@ public class Main {
 		System.out.println("   " + todof2);
 
 		pauseOgSjekkDatabasen("\nSjekk at rad med id=3 har fått oppdatert klokkeslett i tekst.");
-
 		
-=======
-//		System.out.println("\nf) Endre tekst på todo med pk=3");
-//
-//		Todo todof1 = todoDAO.finnTodoMedPk(3);
-//		todof1.setTekst("Endret tekst " + LocalTime.now());
-//		todoDAO.oppdaterTodo(todof1);
-//
-//		Todo todof2 = todoDAO.finnTodoMedPk(3);
-//		System.out.println("   Henter ut todo med pk=3");
-//		System.out.println("   " + todof2);
-//
-//		pauseOgSjekkDatabasen("\nSjekk at rad med id=3 har fått oppdatert klokkeslett i tekst.");
-//
-//		
->>>>>>> branch 'main' of https://github.com/587851/dat107-v2021.git
-//		// g)
+		Todo todof3 = todoDAO.finnTodoMedPk(3);
+		todof3.setTekst("Endret tekst " + "Vaske bilen");
+		todoDAO.oppdaterTodo(todof3);
+
+		// g)
 		System.out.println("\ng) Endre tekst på todo med pk=3, alternativ måte");
 
 		todoDAO.oppdaterTekst(3, "Jobbe med DAT107-oblig");

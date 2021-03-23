@@ -1,4 +1,4 @@
-package no.hvl.dat107.dao;
+	package no.hvl.dat107.dao;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -30,14 +30,21 @@ public class AnsattDAO {
     }
 
 // ??    public void registrerProsjektdeltagelse(int ansattId, int prosjektId) {
-    public void registrerProsjektdeltagelse(Ansatt a, Prosjekt p) {
+    public void registrerProsjektdeltagelse(int ansattId, int prosjektId) {
     	
         EntityManager em = emf.createEntityManager();
         EntityTransaction tx = em.getTransaction();
         try {
             tx.begin();
             
-            //TODO
+            Ansatt a = em.find(Ansatt.class, ansattId);
+            Prosjekt p = em.find(Prosjekt.class, prosjektId);
+            
+            //a = em.merge(a);
+            //p= em.merge(p);
+                     
+            a.leggTilProsjekt(p);
+            p.leggTilAnsatt(a);
             
             tx.commit();
         } catch (Throwable e) {
@@ -52,14 +59,21 @@ public class AnsattDAO {
     }
 
  // ??    public void slettProsjektdeltagelse(int ansattId, int prosjektId) {
-    public void slettProsjektdeltagelse(Ansatt a, Prosjekt p) {
+    public void slettProsjektdeltagelse(int ansattId, int prosjektId) {
     	
         EntityManager em = emf.createEntityManager();
         EntityTransaction tx = em.getTransaction();
         try {
             tx.begin();
 
-            //TODO
+            Ansatt a = em.find(Ansatt.class, ansattId);
+            Prosjekt p = em.find(Prosjekt.class, prosjektId);
+            
+            //a = em.merge(a);
+            //p= em.merge(p);
+                     
+            a.fjernProsjekt(p);
+            p.fjernAnsatt(a);
             
             tx.commit();
         } catch (Throwable e) {

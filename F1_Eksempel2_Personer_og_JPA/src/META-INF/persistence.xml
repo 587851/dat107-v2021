@@ -2,6 +2,7 @@
 <persistence xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
 	version="2.0" xmlns="http://java.sun.com/xml/ns/persistence">
+	
 	<persistence-unit name="personPersistenceUnit" transaction-type="RESOURCE_LOCAL">
 	
 		<class>no.hvl.dat107.Person</class>
@@ -9,9 +10,9 @@
 		<properties>
 		    <!--  Generelle JPA properties -->
 			<property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver" />
-			<property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/dat107v21" />
-			<property name="javax.persistence.jdbc.user" value="postgres" />
-			<property name="javax.persistence.jdbc.password" value="postgres" />
+			<property name="javax.persistence.jdbc.url" value="jdbc:postgresql://data1.hib.no:5434/h587851" />
+			<property name="javax.persistence.jdbc.user" value="h587851" />
+			<property name="javax.persistence.jdbc.password" value="RSogBG6268" />
 			
 			<!--  EclipseLink properties -->
             <!--  Se https://wiki.eclipse.org/EclipseLink/Examples/JPA/Logging -->
