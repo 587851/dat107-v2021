@@ -40,8 +40,8 @@ public class AnsattDAO {
             
             Prosjektdeltagelse pd = new Prosjektdeltagelse(a, p, 0);
             
-            a.leggTilProsjektdeltagelse(pd);
-            p.leggTilProsjektdeltagelse(pd);
+            em.merge(a).leggTilProsjektdeltagelse(pd);
+            em.merge(p).leggTilProsjektdeltagelse(pd);
             
             em.persist(pd);
             
@@ -63,12 +63,14 @@ public class AnsattDAO {
         EntityTransaction tx = em.getTransaction();
         try {
             tx.begin();
-            Prosjektdeltagelse pd = em.find(Prosjektdeltagelse.class, a.getId());
 
-            a.fjernProsjektdeltagelse(pd);
-            p.fjernProsjektdeltagelse(pd);
+            //TODO - Må søke med JPQL. Ellers som i b)
             
-            em.remove(pd);
+//            Prosjektdeltagelse pd = em.find(Prosjektdeltagelse.class, ???);
+//            
+//            //...
+//            
+//            em.remove(pd);
             
             tx.commit();
         } catch (Throwable e) {
