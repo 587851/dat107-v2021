@@ -1,5 +1,6 @@
 package no.hvl.dat107;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
@@ -10,6 +11,7 @@ import javax.persistence.Table;
 public class Rom {
     
     @Id
+    @Column(name="romnr")
     private String romNr;
     private double kvm;
     

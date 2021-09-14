@@ -8,7 +8,8 @@ import javax.persistence.Table;
 @Table(schema = "forelesning2")
 public class Todo {
 	
-	@Id private int id;
+	@Id 
+	private int id;
 	private String tekst;
 	
     public Todo() {}

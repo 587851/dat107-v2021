@@ -1,8 +1,11 @@
 package no.hvl.dat107;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import javax.persistence.TypedQuery;
 
 public class KontorDAO {
 
@@ -36,9 +39,23 @@ public class KontorDAO {
         
     }
     
-//    public List<Rom> finnAlleRom() {
-//        JPQL
-//    }
+    public List<Rom> finnAlleRom() {
+   	 EntityManager em = emf.createEntityManager();
+   	 
+   	 List<Rom> rom = null;
+   	 String queryString = "SELECT t FROM Rom";
+   	 
+   	 try {
+            TypedQuery<Rom> query = em.createQuery(queryString, Rom.class);
+            rom = query.getResultList();
+            
+        } finally {
+            em.close();
+        }
+   	 
+   	 return rom;
+   }
+
 //    
 //    public List<Ansatt> finnAlleAnsatte() {
 //        JPQL

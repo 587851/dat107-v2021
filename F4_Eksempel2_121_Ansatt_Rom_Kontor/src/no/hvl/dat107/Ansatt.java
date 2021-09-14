@@ -18,7 +18,7 @@ public class Ansatt {
     private String fornavn;
     private String etternavn;
     
-    @OneToOne
+    @OneToOne //Fremmednøkkelen i tabellen.
     @JoinColumn(name = "romNr", referencedColumnName = "romNr")
     private Rom kontor;
 

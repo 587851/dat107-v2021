@@ -4,6 +4,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
+import javax.persistence.TypedQuery;
 
 import no.hvl.dat107.entity.Ansatt;
 import no.hvl.dat107.entity.Prosjekt;
@@ -83,27 +84,26 @@ public class AnsattDAO {
         }
     }
 
-//    private Prosjektdeltagelse finnProsjektdeltagelse(int ansattId, int prosjektId) {
-//        
-//        String queryString = "SELECT pd FROM Prosjektdeltagelse pd " 
-//                + "WHERE pd.ansatt.id = :ansattId AND pd.prosjekt.id = :prosjektId";
-//
-//        EntityManager em = emf.createEntityManager();
-//
-//        Prosjektdeltagelse pd = null;
-//        try {
-//            TypedQuery<Prosjektdeltagelse> query 
-//                    = em.createQuery(queryString, Prosjektdeltagelse.class);
-//            query.setParameter("ansattId", ansattId);
-//            query.setParameter("prosjektId", prosjektId);
-//            pd = query.getSingleResult();
-//            
-//        } catch (NoResultException e) {
-//            // e.printStackTrace();
-//        } finally {
-//            em.close();
-//        }
-//        return pd;
-//    }
+    public Prosjektdeltagelse finnProsjektdeltagelse(int ansattId, int prosjektId) {
+        
+        String queryString = "SELECT pd FROM Prosjektdeltagelse pd " 
+                + "WHERE pd.ansatt.id = :ansattId AND pd.prosjekt.id = :prosjektId";
+
+        EntityManager em = emf.createEntityManager();
+
+        Prosjektdeltagelse pd = null;
+        try {
+            TypedQuery<Prosjektdeltagelse> query   = em.createQuery(queryString, Prosjektdeltagelse.class);
+            query.setParameter("ansattId", ansattId);
+            query.setParameter("prosjektId", prosjektId);
+            pd = query.getSingleResult();
+            
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            em.close();
+        }
+        return pd;
+    }
     
 }

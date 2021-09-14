@@ -6,7 +6,6 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="src" path="src"/>
-	<classpathentry kind="lib" path="lib/javax.persistence-api-2.2.jar"/>
 	<classpathentry kind="lib" path="lib/eclipselink-2.7.5.jar"/>
 	<classpathentry kind="lib" path="lib/postgresql-42.2.9.jar"/>
 	<classpathentry kind="output" path="bin"/>
