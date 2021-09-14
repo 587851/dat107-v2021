@@ -28,10 +28,6 @@ public class Prosjekt {
             joinColumns = @JoinColumn(name="Prosjekt_Id"),
             inverseJoinColumns = @JoinColumn(name="Ansatt_Id"))
     private List<Ansatt> ansatte;
-    
-    public int getId() {
-		return id;
-	}
 
     public void skrivUt(String innrykk) {
         System.out.printf("%sProsjekt nr %d: %s", innrykk, id, navn);
